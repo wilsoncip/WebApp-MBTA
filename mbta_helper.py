@@ -3,11 +3,14 @@ MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
 MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 
 # Your API KEYS (you need to use your own keys - very long random characters)
-MAPQUEST_API_KEY = ""
-MBTA_API_KEY = ""
+MAPQUEST_API_KEY = "XgyimnTEKwa2P4NwDWHkYS59HAVxRxgT"
+MBTA_API_KEY = "5be92a41c75b401283f44e93b3b46d75"
 
 
 # A little bit of scaffolding if you want to use it
+import urllib.request
+import json
+from pprint import pprint
 
 def get_json(url):
     """
