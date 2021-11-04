@@ -19,7 +19,12 @@ def get_json(url):
     """
     import urllib.request
     import json
-    MAPQUEST_url =f'http://www.mapquestapi.com/geocoding/v1/address?key=KEY&location=Washington,DC'
+
+    request = urllib.request.urlopen(url)
+    response_text = request.read().decode('utf-8')
+    response_data = json.loads(response_text)
+    return response_data
+
 
 
 def get_lat_long(place_name):
