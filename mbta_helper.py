@@ -17,7 +17,9 @@ def get_json(url):
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
     """
-    pass
+    import urllib.request
+    import json
+    MAPQUEST_url =f'http://www.mapquestapi.com/geocoding/v1/address?key=KEY&location=Washington,DC'
 
 
 def get_lat_long(place_name):
