@@ -1,2 +1,2 @@
 # WebApp-MBTA
- This is the base repo for Assignment 3 - MBTA project. 
+ This is the base repo for MBTA project. Please read [instructions](instructions.md). 
