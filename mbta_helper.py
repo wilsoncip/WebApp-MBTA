@@ -33,7 +33,7 @@ def get_lat_long(location):
     for Mapquest Geocoding  API URL formatting requirements.
     """
     APIKEY = MAPQUEST_API_KEY
-    get_json(f'http://www.mapquestapi.com/geocoding/v1/address?key={APIKEY}&location=Washington,DC')
+    get_json(f'http://www.mapquestapi.com/geocoding/v1/address?key={APIKEY}&location={location}')
     
 
 
