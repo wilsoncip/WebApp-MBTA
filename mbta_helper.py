@@ -8,8 +8,6 @@ MBTA_API_KEY = "5be92a41c75b401283f44e93b3b46d75"
 
 
 # A little bit of scaffolding if you want to use it
-import urllib.request
-import json
 from pprint import pprint
 
 def get_json(url):
@@ -27,14 +25,16 @@ def get_json(url):
 
 
 
-def get_lat_long(place_name):
+def get_lat_long(location):
     """
     Given a place name or address, return a (latitude, longitude) tuple
     with the coordinates of the given place.
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
-    pass
+    APIKEY = MAPQUEST_API_KEY
+    get_json(f'http://www.mapquestapi.com/geocoding/v1/address?key={APIKEY}&location=Washington,DC')
+    
 
 
 def get_nearest_station(latitude, longitude):
