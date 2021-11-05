@@ -34,8 +34,8 @@ def get_lat_long(location):
     for Mapquest Geocoding  API URL formatting requirements.
     """
     APIKEY = MAPQUEST_API_KEY
-    get_json(f'http://www.mapquestapi.com/geocoding/v1/address?key={APIKEY}&location={location}')
-    
+    data = get_json(f'http://www.mapquestapi.com/geocoding/v1/address?key={APIKEY}&location={location}')
+    pprint(data['results'][0]['locations'][0]['displayLatLng'])
 
 
 def get_nearest_station(latitude, longitude):
@@ -59,11 +59,14 @@ def find_stop_near(place_name):
     current_location = get_lat_long(place_name)
 
 
+
+
 def main():
     """
     You can test all the functions here
     """
     print(get_nearest_station(1,1))
+    get_lat_long('Washington,DC')
 
 
 if __name__ == '__main__':
