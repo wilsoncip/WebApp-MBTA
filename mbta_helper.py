@@ -8,6 +8,7 @@ MBTA_API_KEY = "5be92a41c75b401283f44e93b3b46d75"
 
 
 # A little bit of scaffolding if you want to use it
+import json
 from pprint import pprint
 
 def get_json(url):
@@ -44,21 +45,25 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-    pass
+    import json
+    with open('stops.txt', encoding='UTF8') as f:
+        data = json.loads(f.read())
+        print(type(data))
+    
 
 
 def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
-    pass
+    current_location = get_lat_long(place_name)
 
 
 def main():
     """
     You can test all the functions here
     """
-    pass
+    print(get_nearest_station(1,1))
 
 
 if __name__ == '__main__':
