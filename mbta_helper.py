@@ -35,7 +35,8 @@ def get_lat_long(location):
     """
     APIKEY = MAPQUEST_API_KEY
     data = get_json(f'http://www.mapquestapi.com/geocoding/v1/address?key={APIKEY}&location={location}')
-    pprint(data['results'][0]['locations'][0]['displayLatLng'])
+    coordinates = data['results'][0]['locations'][0]['displayLatLng']
+    return (coordinates['lat'], coordinates['lng'])
 
 
 def get_nearest_station(latitude, longitude):
@@ -57,6 +58,8 @@ def find_stop_near(place_name):
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
     current_location = get_lat_long(place_name)
+    # nearest = get_nearest_station(current_location[0], current_location[1])
+    # return nearest
 
 
 
@@ -65,8 +68,7 @@ def main():
     """
     You can test all the functions here
     """
-    print(get_nearest_station(1,1))
-    get_lat_long('Washington,DC')
+    find_stop_near('boston')
 
 
 if __name__ == '__main__':
