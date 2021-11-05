@@ -46,10 +46,18 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
+    import urllib.request
     import json
-    with open('stops.txt', encoding='UTF8') as f:
-        data = json.loads(f.read())
-        print(type(data))
+    lat = 42.3394
+    lon = -71.0940
+    
+    url = f'https://api-v3.mbta.com/stops?filter%5Blatitude%5D={lat}&filter%5Blongitude%5D={lon}&api_key={MBTA_API_KEY}&sort=distance'
+    print(url)
+    request = urllib.request.urlopen(url)
+    response_text = request.read().decode('utf-8')
+    response_data = json.loads(response_text)
+    return response_data
+    
     
 
 
@@ -68,7 +76,7 @@ def main():
     """
     You can test all the functions here
     """
-    find_stop_near('boston')
+    pprint(get_nearest_station(42,-71))
 
 
 if __name__ == '__main__':
