@@ -17,14 +17,14 @@ def index():
 @app.route("/station/", methods=["GET", "POST"])
 def station():
     if request.method == "POST":
-        place = request.form["place"]
+        place = request.form["location"]
         nearest_station = find_stop_near(place)
 
         if nearest_station:
             return render_template(
                 "result.html",
-                place=place,
-                nearest_station=nearest_station
+                nearest_station=nearest_station['station_name'],
+                accesiblity=nearest_station['wheelchair_accessible']
             )
         else:
             return render_template("form.html", error=True)
