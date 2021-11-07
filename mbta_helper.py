@@ -54,10 +54,9 @@ def get_nearest_station(latitude, longitude):
     response_text = request.read().decode('utf-8')
     response_data = json.loads(response_text)
     
-    station_name = response_data['data'][0]['attributes']['description']
-    print(response_data['data'][0]['attributes'])
+    station_name = response_data['data'][0]['attributes']['name']
     wheelchair_accessible = response_data['data'][0]['attributes']['wheelchair_boarding']
-    # return f"You are closest to {station_name}. Wheelchair status: {wheelchair_accessible}"
+    return f"You are closest to {station_name}. Wheelchair status: {wheelchair_accessible}"
 
 
 def find_stop_near(place_name):
@@ -75,7 +74,7 @@ def main():
     """
     You can test all the functions here
     """
-    print(find_stop_near('wellesley'))
+    print(find_stop_near('brookline'))
 
 
 if __name__ == '__main__':
