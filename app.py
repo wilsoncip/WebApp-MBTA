@@ -23,8 +23,8 @@ def station():
         if nearest_station:
             return render_template(
                 "result.html",
-                nearest_station=nearest_station['station_name'],
-                accesiblity=nearest_station['wheelchair_accessible']
+                nearest_station = nearest_station['station_name'],
+                wheelchair_accessible = nearest_station['wheelchair_accessible']
             )
         else:
             return render_template("form.html", error=True)
