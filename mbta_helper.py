@@ -48,16 +48,16 @@ def get_nearest_station(latitude, longitude):
     """
     import urllib.request
     import json
-    lat = 42.3394
-    lon = -71.0940
-    url = f'https://api-v3.mbta.com/stops?filter%5Blatitude%5D={lat}&filter%5Blongitude%5D={lon}&api_key={MBTA_API_KEY}&sort=distance'
-    print(url)
+    url = f'https://api-v3.mbta.com/stops?filter%5Blatitude%5D={float(latitude)}&filter%5Blongitude%5D={float(longitude)}&api_key={MBTA_API_KEY}&sort=distance'
+    
     request = urllib.request.urlopen(url)
     response_text = request.read().decode('utf-8')
     response_data = json.loads(response_text)
+    
     station_name = response_data['data'][0]['attributes']['description']
+    print(response_data['data'][0]['attributes'])
     wheelchair_accessible = response_data['data'][0]['attributes']['wheelchair_boarding']
-    return f"You are closest to {station_name}. Wheelchair status: {wheelchair_accessible}"
+    # return f"You are closest to {station_name}. Wheelchair status: {wheelchair_accessible}"
 
 
 def find_stop_near(place_name):
@@ -65,8 +65,8 @@ def find_stop_near(place_name):
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
     current_location = get_lat_long(place_name)
-    # nearest = get_nearest_station(current_location[0], current_location[1])
-    # return nearest
+    nearest = get_nearest_station(current_location[0], current_location[1])
+    return nearest
 
 
 
@@ -75,7 +75,7 @@ def main():
     """
     You can test all the functions here
     """
-    pprint(get_nearest_station(42,-71))
+    print(find_stop_near('wellesley'))
 
 
 if __name__ == '__main__':
