@@ -26,9 +26,9 @@ def station():
                 place=place,
                 nearest_station=nearest_station
             )
-        # else:
-    #         return render_template("form.html", error=True)
-    # return render_template("form.html", error=None)
+        else:
+            return render_template("form.html", error=True)
+    return render_template("form.html", error=None)
 
 
 
