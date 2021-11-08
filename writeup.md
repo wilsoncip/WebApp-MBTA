@@ -15,6 +15,6 @@ From a process point of view, what went well? What could you improve? Other poss
 
 Also discuss your team process in your reflection. How did you plan to divide the work (e.g. split by class, always pair program together, etc.) and how did it actually happen? Were there any issues that arose while working together, and how did you address them? What would you do differently next time? -->
 
-During the process of building the code, 
+During the process of building the code, the hardest part was being able to retrieve data from the MBTA and finding the url to call in the data. Once we figured that out, it was pretty easy to index the correct data.
 
 Our team finished this assignment by splitting the work and helping one another whenever one member was unable to proceed to the next stage. There were several issues that arose when working together, but the main issue that we faced was merge conflict. It was relatively difficult to work on the same function at the same time in two different devices. We addressed them by asigning each other different part to work on and discussing before merging the code. Another problem that arose was the usage of different variable names. This resulted in our code not working out at the end even if we re-confirmed multiple times. Another lesson learned here was to make an agreement on the variables names at the beginning if we are given the opportunity to work together the next time. 
