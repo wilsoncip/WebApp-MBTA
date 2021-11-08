@@ -1,46 +1,48 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find the Nearest Station</title>
-    
-    <!-- Scripts for Map -->
+
+    <!-- Map Scripts -->
     <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
-
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css"/>
   </head>
 
   <body>
     <h1>Results</h1>
     <p>You are nearest to: {{ nearest_station }}.</p>
     <p>Wheelchair Accesibility: {{ wheelchair_accessible }}</p>
-
-    <script>
-      // Initialize the platform object:
-      var platform = new H.service.Platform({
-      'apikey': 'YOUR API KEY'
-      });  
-
-
-      // Obtain the default map types from the platform object
-      var maptypes = platform.createDefaultLayers();
-
-      // Instantiate (and display) a map object:
-      var map = new H.Map(
-      document.getElementById('mapContainer'),
-      maptypes.vector.normal.map,
-      {
-       zoom: 10,
-       center: { lat: lat, lng: long }  
-      });
-  
-var marker = new H.map.Marker({ lat: lat, lng: long });
-  
-// Add the marker to the map:
-map.addObject(marker);
-  
-</script>
     
+    <div style="width: 50%; height: 50%" id="mapContainer"></div>
+    <script>
+    // Create platform
+    var platform = new H.service.Platform({
+      'apikey': 'APIKEY'
+      });  
+  
+    // Retrieve map layers and coordinates
+    var layers = platform.createDefaultLayers();
+
+    const lat = {{ lat }};
+	  const long = {{ long }};
+
+    // Create map
+    var map = new H.Map(
+      document.getElementById('mapContainer'),
+      layers.vector.normal.map,
+      {
+        zoom: 15,
+        center: { lat: lat, lng: long }  
+      });
+
+    // Add marker and map controls
+    var marker = new H.map.Marker({ lat: lat, lng: long });
+      map.addObject(marker);
+    var ui = H.ui.UI.createDefault(map, layers);
+
+    </script>
   </body>
 </html>

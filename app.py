@@ -4,7 +4,7 @@ Simple "Hello, World" application using Flask
 
 from flask import Flask, render_template, request
 
-from mbta_helper import find_stop_near, get_lat_long
+from mbta_functions import find_stop_near, get_lat_long
 
 
 app = Flask(__name__)
@@ -21,18 +21,19 @@ def station():
         nearest_station = find_stop_near(place)
 
         if nearest_station:
-            coordinates = get_lat_long(place)
+            xy = get_lat_long(place)
             return render_template(
                 "result.html",
                 nearest_station = nearest_station['station_name'],
                 wheelchair_accessible = nearest_station['wheelchair_accessible'],
-                APIKEY = 'SzamCwiHRLf3Rlj4Nj5Qe4OzLuPsjS96VEhzAu06eU8'
+                APIKEY = 'kZeUTsZ-vJIKSvs121kmyYRGqZX9wcyP-_aEUiyU1PM',
+                lat = xy[0],
+                long = xy[1]
             )
         else:
             return render_template("form.html", error=True)
+    
     return render_template("form.html", error=None)
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -73,6 +73,7 @@ def main():
     """
     You can test all the functions here
     """
+    print(get_lat_long('boston'))
     print(find_stop_near('brookline'))
 
 
