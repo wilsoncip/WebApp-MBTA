@@ -26,7 +26,7 @@ def station():
                 "result.html",
                 nearest_station = nearest_station['station_name'],
                 wheelchair_accessible = nearest_station['wheelchair_accessible'],
-                APIKEY = 'kZeUTsZ-vJIKSvs121kmyYRGqZX9wcyP-_aEUiyU1PM',
+                APIKEY = 'YrAKq6dyjW33pjXNbSlq2QDEiNOK0WaL-0R7R-PghGU',
                 lat = xy[0],
                 long = xy[1]
             )
