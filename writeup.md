@@ -4,7 +4,7 @@
 [~1 paragraph]
 <!-- Write a short abstract describing your project. Include all the extensions to the basic requirements. -->
 
-This project utilized Flask to create a website that returned the nearest station to the user's location and whether it is wheelchair accessible or not. The basic extension requirements are Flask, render_template, request, urlib, and json. On top of that, we need to request API key for finding the coordinates (longitude and latitude) of a place and another API key for searching the nearest station based on the location provided. To begin with, we need to build the necessary functions under "mbta_helper.py"  Next, we build the templates for the website and code to build the website under "app.py". 
+This project utilized Flask to create a website that returned the nearest station to the user's location and whether it is wheelchair accessible or not. The basic extension requirements are render_template and request. To begin with, we need to request API key for finding the coordinates (longitude and latitude) of a place and another API key for searching the nearest station based on the location provided. Next, we need to build the necessary functions under "mbta_helper.py"  Finally, we build the templates for the website and code to build the website under "app.py". 
 
 ### Project Reflection
 
