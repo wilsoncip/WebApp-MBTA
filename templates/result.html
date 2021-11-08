@@ -16,25 +16,25 @@
     <p>You are nearest to: {{ nearest_station }}.</p>
     <p>Wheelchair Accesibility: {{ wheelchair_accessible }}</p>
     
-    <div style="width: 50%; height: 50%" id="mapContainer"></div>
+    <!-- Creating map using Javascript -->
+    <div style="width: 50%; height: 50%" id="map_container"></div>
     <script>
+    
     // Create platform
-    var platform = new H.service.Platform({
-      'apikey': 'APIKEY'
-      });  
+    var platform = new H.service.Platform({'apikey': 'APIKEY'});  
   
     // Retrieve map layers and coordinates
     var layers = platform.createDefaultLayers();
 
-    const lat = {{ lat }};
-	  const long = {{ long }};
+    const lat = {{lat}};
+	  const long = {{long}};
 
     // Create map
     var map = new H.Map(
-      document.getElementById('mapContainer'),
+      document.getElementById('map_container'),
       layers.vector.normal.map,
       {
-        zoom: 15,
+        zoom: 10,
         center: { lat: lat, lng: long }  
       });
 
